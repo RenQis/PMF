@@ -2,7 +2,7 @@ from numpy import *
 import random
 
 
-def load_rating_data(file_path='ml-100k/u.data'):
+def load_rating_data(file_path='ml-100k/dataset.txt'):
     """
     load movie lens 100k ratings from original rating file.
     need to download and put rating data in /data folder first.
@@ -10,12 +10,13 @@ def load_rating_data(file_path='ml-100k/u.data'):
     """
     prefer = []
     for line in open(file_path, 'r'):  # 打开指定文件
-        (userid, movieid, rating, ts) = line.split('\t')  # 数据集中每行有4项
+        (userid, movieid, rating) = line.split('\t')  # 数据集中每行有4项
         uid = int(userid)
         mid = int(movieid)
         rat = float(rating)
         prefer.append([uid, mid, rat])
     data = array(prefer)
+    print(data)
     return data
 
 
